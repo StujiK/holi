@@ -94,3 +94,58 @@ function sumMix(x){
   return sum;
   
 }
+
+
+
+
+
+
+DESCRIPTION:
+Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+
+Examples:
+Input: 42145 Output: 54421
+
+Input: 145263 Output: 654321
+
+Input: 123456789 Output: 987654321
+
+
+
+sol: 
+
+
+
+
+
+function descendingOrder(n){
+  let ArrString = n.toString();
+  let numStr = [];
+  for(let i = 0; i<ArrString.length;i++){
+    numStr.push(ArrString[i]);
+  }
+  
+  for(let i = 0;i<numStr.length;i++){
+    for(let j = i + 1; j<numStr.length; j++){
+      if(numStr[i]<numStr[j]){
+        let temp = numStr[i];
+        numStr[i] = numStr[j];
+        numStr[j] = temp;
+      }
+    }
+  }
+  
+  
+  let str = "";
+  for(let i = 0;i<numStr.length;i++){
+    str += numStr[i];
+    
+  }
+  
+  
+  let sortedNum = parseInt(str, 10);
+  
+  return sortedNum;
+  
+  
+}
