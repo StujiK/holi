@@ -197,3 +197,22 @@ function isPalindrome(x) {
         
         return sum;
       } 
+
+
+      function strCount(str, letter){
+        let count = 0;
+        //code here
+        for(let i = 0;i<str.length;i++){
+          if(letter == str[i]){
+            count++;
+          }
+        }
+        return count;
+      }
+
+      function stringToArray(string){
+        return string.split(' ');
+       
+       }
+
+       
