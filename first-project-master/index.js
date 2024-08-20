@@ -29,23 +29,30 @@ app.get("/", (req, res) => {
     <table class="mui-table">
     <thead>`;
     // each line
+    
 
-    const page = 1;
+    const page = req.query.page || 1
     const pageSize = 10;
 
     const pageTotal = lines.length / pageSize;
     for (u = 0; u < pageTotal; u++) {
       console.log("page " + u);
     }
-
-    for (let i = page * pageSize; i <= page * pageSize + (pageSize - 1); i++) {
-      const fields = lines[i].split(";");
+    html += "<tr>\n";
+    const fields = lines[0].split(";");
+    for (let j = 0; j < fields.length; j++) {
+      
+      html += `<th>${fields[j]}</th>`;
+       }
+       html += "</tr>\n";
+       for (let i = page * pageSize + 1; i <= page * pageSize + (pageSize); i++) {
       html += "<tr>\n";
-      if (i == 0) {
-        for (let j = 0; j < fields.length; j++) {
-          html += `<th>${fields[j]}</th>`;
-        }
-      } else {
+      const fields = lines[i].split(";");
+      //if (i <= page * pageSize) {
+      // for (let j = 0; j < fields.length; j++) {
+     //  html += `<th>${fields[j]}</th>`;
+    //    }
+   //   } else {
         for (let k = 0; k < fields.length; k++) {
           if (k == 1) {
             html += `<td><img src="${fields[1]}" alt="image"/></td>\n`;
@@ -54,19 +61,19 @@ app.get("/", (req, res) => {
           } else {
             html += `<td>${fields[k]}</td>\n`;
           }
-        }
+       // }
       }
 
       html += "</tr>\n";
     }
 
     html += `</table>`;
-
     html+= `<ul\n>`;
-
     // print pages
     for (let x = 1;x<=pageTotal;x++){
-      html+= `<li>${x}</li>`;
+      html+= `<li><a href="/?page=${x-1}">${x}</a></li>`;
+
+     /// <li><a href="/?page=0">1</a></li>
     
 
     }

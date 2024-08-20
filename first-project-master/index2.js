@@ -21,7 +21,7 @@ try {
         html += "</tr>\n";
     } 
 
-    html += "</table>\n</body>\n</html>";
+    html += "</table>\n</body>\n</html>"; 
     console.log(html);
 } catch (err) {
   console.error(err);

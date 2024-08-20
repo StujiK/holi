@@ -116,6 +116,7 @@ this
 	{
 		this.arbeit = arbeit;
 	}
+<<<<<<< HEAD
 }
 
 
@@ -155,3 +156,44 @@ function isPalindrome(x) {
     
     return sum;
   }
+=======
+
+
+    function isPalindrome(x) {
+  
+        // Convert the string to lowercase to make the check case-insensitive
+        const lowerCaseStr = x.toLowerCase();
+        
+        // Reverse the string
+        const reversedStr = lowerCaseStr.split('').reverse().join('');
+        
+        // Check if the original string is the same as the reversed string
+        return lowerCaseStr === reversedStr;
+      }
+
+
+      function setAlarm(employed, vacation){
+        if (employed == true && vacation == true){
+          return  false;
+        }
+        else if (employed == false && vacation == true ){
+          return false;
+        }
+        else if (employed == true && vacation == false){
+         return true; 
+        }
+        else if (employed == false && vacation == false){
+          return false;
+        }
+      
+      }
+
+
+      
+      function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+        // code goes here
+        let sum = 0;
+       sum = laLigaGoals + copaDelReyGoals + championsLeagueGoals;
+        
+        return sum;
+      } 
